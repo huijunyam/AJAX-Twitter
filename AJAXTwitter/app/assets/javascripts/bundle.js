@@ -185,8 +185,12 @@
 	    // debugger;
 	    this.$ul.empty();
 	    for (let i = 0; i < users.length; i++) {
+	      let $a = $("<a></a>");
+	      $a.text(users[i].username);
+	      $a.attr("href", `/users/${users[i].id}`);
 	      let button = '<button class="follow-toggle" type="button"></button>';
-	      let $li = $(`<li>${users[i].username} ${button}</li>`);
+	      let $li = $(`<li>${button}</li>`);
+	      $li.append($a);
 	      this.$ul.append($li);
 	    }
 	
